@@ -1,0 +1,6 @@
+{
+  "apiEndPionts": "http://localhost:3900/api",
+  "header": {
+    "Content-Type": "application/json"
+  }
+}
