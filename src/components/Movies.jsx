@@ -31,12 +31,19 @@ class Movies extends Component {
   }
 
   async componentDidMount() {
-    const getGenre = await getGenres();
-    const getMovie = await getMovies();
-    this.setState({
-      movies: getMovie,
-      genres: [{ name: 'All genres' }, ...getGenre]
-    });
+    try {
+      const getGenre = await getGenres();
+      const getMovie = await getMovies();
+      this.setState({
+        movies: getMovie,
+        genres: [{ name: 'All genres' }, ...getGenre]
+      });
+    } catch (err) {
+      this.setState({
+        movies: [],
+        genres: []
+      });
+    }
   }
 
   getPageData = () => {
